@@ -1,0 +1,78 @@
+header  nav > a {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+header  nav > a:hover {
+    background-color: #241e75;
+}
+
+header  nav {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header > div:first-child {
+    background-color: black;
+}
+
+header > div {
+    background-color: grey;
+    max-width: 800px;
+    margin: 0 auto;
+}
+body {
+    margin: 0;
+    background-color: green;
+}
+
+body > header > div >h1 {
+    font-size: 42px;
+}
+
+body > header > div >h2 {
+    font-size: 18px;
+}
+
+body > main > section >h3 {
+    font-size: 28px;
+}
+
+main > section {
+    background-color: red;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+figure {
+    float: left;
+
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+#produkty p {
+    clear: left;
+}
+
+footer {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#metodika , #příklady  {
+    background-color: purple;
+}
+

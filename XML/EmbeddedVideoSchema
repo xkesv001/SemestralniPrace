@@ -1,0 +1,121 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" vc:minVersion="1.1">
+    <xs:element name="weboveStranky">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="webovaStranka" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:int"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="webovaStranka">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="w_vlastnosti"/>
+                <xs:element ref="w_videa"/>
+            </xs:sequence>
+            <xs:attribute name="w_id" type="xs:int"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="w_vlastnosti">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="w_autor"/>
+                <xs:element name="w_nazev" type="xs:string"/>
+                <xs:element name="w_podNazev" type="xs:string"/>
+                <xs:element name="w_framework" type="framework"/>
+                <xs:element name="w_URL" type="xs:string"/>
+                <xs:element name="w_pocetNavstev" type="xs:int"/>
+                <xs:element name="w_pocetLiku" type="xs:int"/>
+                <xs:element name="w_pocetDisliku" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="w_autor">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="w_a_jmeno" type="xs:string"/>
+                <xs:element name="w_a_prijmeni" type="xs:string"/>
+                <xs:element name="w_a_prezdivka" type="xs:string"/>
+                <xs:element name="w_a_email" type="xs:string"/>
+                <xs:element name="w_a_slovniPopis" type="xs:string"/>
+                <xs:element name="w_a_rating" type="xs:int"/>
+            </xs:sequence>
+            <xs:attribute  name="w_a_id" type="xs:int"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="w_videa">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="video" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute  name="w_v_id" type="xs:int"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="video">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="v_nazev" type="xs:string"/>
+                <xs:element name="v_slovniPopis" type="xs:string"/>
+                <xs:element name="v_hostServer" type="videoServer"/>
+                <xs:element name="v_codec" type="codec"/>
+                <xs:element name="v_delka" type="xs:int"/>
+                <xs:element name="v_pocetSledovani" type="xs:int"/>
+                <xs:element name="v_pocetSdileni" type="xs:int"/>
+                <xs:element name="v_pocetLiku" type="xs:int"/>
+                <xs:element name="v_pocetDisliku" type="xs:int"/>
+                <xs:element name="v_pocetBreku" type="xs:int"/>
+                <xs:element name="v_pocetPobaveni" type="xs:int"/>
+                <xs:element name="v_pocetRozcileni" type="xs:int"/>
+                <xs:element ref="v_autor"/>
+            </xs:sequence>
+            <xs:attribute  name="v_id" type="xs:int"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="v_autor">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="v_a_jmeno" type="xs:string"/>
+                <xs:element name="v_a_prijmeni" type="xs:string"/>
+                <xs:element name="v_a_prezdivka" type="xs:string"/>
+                <xs:element name="v_a_email" type="email"/>
+                <xs:element name="v_a_slovniPopis" type="xs:string"/>
+                <xs:element name="v_a_rating" type="xs:int"/>
+                <xs:element name="v_a_pocetSubscribe" type="xs:int"/>
+                <xs:element name="v_a_pocetBlokaci" type="xs:int"/>
+            </xs:sequence>
+            <xs:attribute  name="v_a_id" type="xs:int"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="videoServer">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="youtube"/>
+            <xs:enumeration value="vimeo"/>
+            <xs:enumeration value="stream"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="framework">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="WordPress"/>
+            <xs:enumeration value="Joomla"/>
+            <xs:enumeration value="SilverStripe"/>
+            <xs:enumeration value="SunLight"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="url">
+        <xs:restriction base="xs:string">
+            <xs:length value="128"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="email">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="@+"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="codec">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="mp4"/>
+            <xs:enumeration value="h264"/>
+            <xs:enumeration value="webm"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
